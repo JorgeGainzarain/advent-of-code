@@ -1,0 +1,12 @@
+{
+  "name": "aoc1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "day1/part_1.js",
+  "scripts": {
+    "day1": "node day1/part_1.js && node day1/part_2.js",
+    "day2": "node day2/part_1.js && node day2/part_2.js"
+
+  },
+  "private": true
+}
