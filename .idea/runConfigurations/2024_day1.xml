@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="day1" type="js.build_tools.npm" nameIsGenerated="true">
+  <configuration default="false" name="2024:day1" type="js.build_tools.npm" nameIsGenerated="true">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="day1" />
+      <script value="2024:day1" />
     </scripts>
     <node-interpreter value="project" />
     <envs />
