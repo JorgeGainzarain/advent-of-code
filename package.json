@@ -6,7 +6,9 @@
   "scripts": {
     "2024:day1": "node 2024/day1/part_1.js && node 2024/day1/part_2.js",
     "2024:day2": "node 2024/day2/part_1.js && node 2024/day2/part_2.js",
-    "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js"
+    "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js",
+    "2024:day4": "node 2024/day4/part_1.js && node 2024/day4/part_2.js",
+    "2024:day5": "node 2024/day5/part_1.js && node 2024/day5/part_2.js"
   },
   "private": true
 }
