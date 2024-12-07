@@ -43,7 +43,7 @@ const input = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8').trim(
 const result = sumMiddlePages(input);
 
 console.log("=====================");
-console.log("🌟 Day 5 Part 2 🌟");
+console.log("🌟 Day 5 Part 1 🌟");
 console.log("=====================");
 console.log("Test Sum: " + test_result);
 console.log("Actual Sum: " + result);

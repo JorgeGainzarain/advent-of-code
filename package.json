@@ -8,7 +8,12 @@
     "2024:day2": "node 2024/day2/part_1.js && node 2024/day2/part_2.js",
     "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js",
     "2024:day4": "node 2024/day4/part_1.js && node 2024/day4/part_2.js",
-    "2024:day5": "node 2024/day5/part_1.js && node 2024/day5/part_2.js"
+    "2024:day5": "node 2024/day5/part_1.js && node 2024/day5/part_2.js",
+    "2024:day6": "node 2024/day6/part_1.js && node 2024/day6/part_2.js",
+    "2024:day7": "node 2024/day7/part_1.js && node 2024/day7/part_2.js"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "cli-progress": "^3.12.0"
+  }
 }
