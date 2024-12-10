@@ -10,7 +10,9 @@
     "2024:day4": "node 2024/day4/part_1.js && node 2024/day4/part_2.js",
     "2024:day5": "node 2024/day5/part_1.js && node 2024/day5/part_2.js",
     "2024:day6": "node 2024/day6/part_1.js && node 2024/day6/part_2.js",
-    "2024:day7": "node 2024/day7/part_1.js && node 2024/day7/part_2.js"
+    "2024:day7": "node 2024/day7/part_1.js && node 2024/day7/part_2.js",
+    "2024:day8": "node 2024/day8/part_1.js && node 2024/day8/part_2.js",
+    "2024:day9": "node 2024/day9/part_1.js && node 2024/day9/part_2.js"
   },
   "private": true,
   "dependencies": {
