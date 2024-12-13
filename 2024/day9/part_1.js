@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+const ora = require('ora');
 
 function parseDiskMap(diskMap) {
     let result = [];
@@ -67,25 +67,16 @@ function calculateChecksum(diskMap) {
     return checksum;
 }
 
-// Main execution
-try {
-    const test_DataPath = path.resolve(__dirname, 'test_data.txt');
-    const test_diskMapInput = fs.readFileSync(test_DataPath, 'utf-8').trim();
-    const test_parsedDiskMap = parseDiskMap(test_diskMapInput);
-    const test_compactedDiskMap = compactDiskMap(test_parsedDiskMap).filter(char => char !== '.');
-    const test_checksum = calculateChecksum(test_compactedDiskMap);
+function processFunction(input) {
+    const spinner = ora('Processing...').start();
 
-    const DataPath = path.resolve(__dirname, 'data.txt');
-    const diskMapInput = fs.readFileSync(DataPath, 'utf-8').trim();
-    const parsedDiskMap = parseDiskMap(diskMapInput);
+    const parsedDiskMap = parseDiskMap(input);
     const compactedDiskMap = compactDiskMap(parsedDiskMap).filter(char => char !== '.');
-    const checksum = calculateChecksum(compactedDiskMap);
+    const result = calculateChecksum(compactedDiskMap);
 
-    console.log("=====================");
-    console.log("🌟 Day 9 - Part 1 🌟");
-    console.log("=====================");
-    console.log("Test Checksum:", test_checksum);
-    console.log("Input Checksum:", checksum);
-} catch (error) {
-    console.error("Error processing disk map:", error);
+    spinner.succeed('Processing complete!');
+    return result;
 }
+
+const correctResults = [1928];
+runDay(9, 1, "", processFunction, correctResults);

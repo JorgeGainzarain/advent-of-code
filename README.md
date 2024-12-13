@@ -26,6 +26,15 @@ The project is organized by years and by days inside, with each day having its o
       └── test_data.txt
 ```
 
+There's also a functions folder that has some useful functions for each day formatting.
+```
+functions/
+  ├── dayTemplate.js
+  ├──loadData.js
+  └──printResults.js
+```
+
+
 ## Prerequisites
 
 - Node.js (version 14 or higher)

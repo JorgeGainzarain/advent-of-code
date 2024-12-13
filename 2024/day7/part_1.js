@@ -1,5 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+
+function loadFile(data) {
+    return data.trim();
+}
 
 function parseInput(input) {
     return input.split('\n').map(line => {
@@ -47,7 +50,7 @@ function canBeTrue(testValue, numbers) {
     return false;
 }
 
-function sumOfValidTestValues(input) {
+function processFunction(input) {
     const equations = parseInput(input);
     let sum = 0;
     for (const { testValue, numbers } of equations) {
@@ -58,15 +61,5 @@ function sumOfValidTestValues(input) {
     return sum;
 }
 
-
-const test_input = fs.readFileSync(path.resolve(__dirname, 'test_data.txt'), 'utf8').trim();
-const test_result = sumOfValidTestValues(test_input);
-
-const input = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8').trim();
-const result = sumOfValidTestValues(input);
-
-console.log("=====================");
-console.log("🌟 Day 7 - Part 1 🌟");
-console.log("=====================");
-console.log("Sum of Valid Input Values:", result);
-console.log("Sum of Valid Test Values:", test_result);
+const correctResults = [3749];
+runDay(7, 1, loadFile, processFunction, correctResults);

@@ -1,15 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
 
-function loadAndSplitFile(filePath) {
-    const data = fs.readFileSync(filePath, 'utf8');
+function loadAndSplitFile(data) {
     const lines = data.split('\n');
     return lines.map(line => line.split(' ').map(Number));
 }
-
-const inputLists = loadAndSplitFile(path.join(__dirname, 'data.txt'));
-const testLists = loadAndSplitFile(path.join(__dirname, 'test_data.txt'));
-//console.log(lists);
 
 function isValidList(list) {
     let increasing = null;
@@ -32,14 +26,11 @@ function isValidList(list) {
     }
 
     return !seenNumbers.has(list[list.length - 1]);
-
 }
 
-const validLists = inputLists.filter(isValidList)
-const testValidLists = testLists.filter(isValidList);
+function countValidLists(lists) {
+    return lists.filter(isValidList).length;
+}
 
-console.log("=====================");
-console.log("🌟 Day 2 - Part 1 🌟");
-console.log("=====================");
-console.log("Test Valid Lists Size: " + testValidLists.length);
-console.log("Actual Valid Lists Size: " + validLists.length);
+const correctResults = [2];
+runDay(2, 1, loadAndSplitFile, countValidLists, correctResults);

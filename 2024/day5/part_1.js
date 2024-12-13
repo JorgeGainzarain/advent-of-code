@@ -1,5 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+
+function loadFile(data) {
+    return data.trim().replace(/\r/g, '');
+}
 
 function parseInput(input) {
     const sections = input.split('\n\n');
@@ -36,14 +39,5 @@ function sumMiddlePages(input) {
     return sum;
 }
 
-const test_input = fs.readFileSync(path.resolve(__dirname, 'test_data.txt'), 'utf8').trim().replace(/\r/g, '');
-const test_result = sumMiddlePages(test_input);
-
-const input = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8').trim().replace(/\r/g, '');
-const result = sumMiddlePages(input);
-
-console.log("=====================");
-console.log("🌟 Day 5 Part 1 🌟");
-console.log("=====================");
-console.log("Test Sum: " + test_result);
-console.log("Actual Sum: " + result);
+const correctResults = [143];
+runDay(5, 1, loadFile, sumMiddlePages, correctResults);

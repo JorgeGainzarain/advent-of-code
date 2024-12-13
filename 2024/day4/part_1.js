@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
 
-
-
+function loadFile(data) {
+    return data.split('\n').map(line => line.split(''));
+}
 
 const word = 'XMAS';
 const directions = [
@@ -49,20 +49,5 @@ function searchWord(matrix, word) {
   return count;
 }
 
-const test_data = fs.readFileSync(path.resolve(__dirname, 'test_data.txt'), 'utf8');
-const test_lines = test_data.replaceAll("\r","").split('\n');
-const test_matrix = test_lines.map(line => line.split(''));
-const test_result = searchWord(test_matrix, word);
-
-const data = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8');
-const lines = data.replaceAll("\r","").split('\n');
-const matrix = lines.map(line => line.split(''));
-const result = searchWord(matrix, word);
-
-
-
-console.log("=====================");
-console.log("🌟 Day 4 - Part 1 🌟");
-console.log("=====================");
-console.log("Test Input Result: " + test_result);
-console.log("Actual Input Result: " + result);
+const correctResults = [18];
+runDay(4, 1, loadFile, (matrix) => searchWord(matrix, word), correctResults);

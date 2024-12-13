@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
 const cliProgress = require('cli-progress');
+
+function loadFile(data) {
+    return data.trim();
+}
 
 function parseInput(input) {
     const lines = input.split('\n').map(line => line.trim());
@@ -92,24 +95,10 @@ function findLoopPositions(map, guardPosition, guardDirection) {
     return loopCount;
 }
 
-console.log();
-console.log("=====================");
-console.log("🌟 Day 6 - Part 2 🌟");
-console.log("=====================");
+function processData(data) {
+    const { map, guardPosition, guardDirection } = parseInput(data);
+    return findLoopPositions(map, guardPosition, guardDirection);
+}
 
-console.log("Processing test data...");
-const test_input = fs.readFileSync(path.resolve(__dirname, 'test_data.txt'), 'utf8').trim();
-const { map: test_map, guardPosition: test_guardPosition, guardDirection: test_guardDirection } = parseInput(test_input);
-const test_result = findLoopPositions(test_map, test_guardPosition, test_guardDirection);
-
-console.time('Execution Time');
-console.log("Processing input data...");
-const input = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8').trim();
-const { map, guardPosition, guardDirection } = parseInput(input);
-const result = findLoopPositions(map, guardPosition, guardDirection);
-console.timeEnd('Execution Time');
-
-
-
-console.log("Test Result:", test_result);
-console.log("Actual Input Result:", result);
+const correctResults = [6];
+runDay(6, 2, loadFile, processData, correctResults);

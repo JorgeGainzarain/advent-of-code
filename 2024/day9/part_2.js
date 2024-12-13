@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+const ora = require('ora');
 
 function parseDiskMap(diskMap) {
     let result = [];
@@ -40,8 +40,6 @@ function compactDiskMapV2(diskMap) {
         }
     }
 
-    //console.log("File Blocks:", fileBlocks);
-
     // Sort files by descending file ID
     let sortedFiles = Object.keys(fileBlocks).sort((a, b) => b - a);
 
@@ -54,10 +52,8 @@ function compactDiskMapV2(diskMap) {
         for (let i = 0; i <= chars.length - blockLength; i++) {
             if (chars.slice(i, i + blockLength).every(c => c === '.')) {
                 if (i > currentPosition) {
-                    //console.log(`Skipping move for file ${fileId} to span ${i} as it is further right than current position ${currentPosition}`);
                     break;
                 }
-                //console.log("Moving file", fileId, "to span", i);
                 // Move the file to this span
                 for (let j = 0; j < blockLength; j++) {
                     chars[blocks[j]] = '.';
@@ -81,25 +77,16 @@ function calculateChecksum(diskMap) {
     return checksum;
 }
 
-// Main execution
-try {
-    const test_DataPath = path.resolve(__dirname, 'test_data.txt');
-    const test_diskMapInput = fs.readFileSync(test_DataPath, 'utf-8').trim();
-    const test_parsedDiskMap = parseDiskMap(test_diskMapInput);
-    const test_compactedDiskMapV2 = compactDiskMapV2(test_parsedDiskMap);
-    const test_checksumV2 = calculateChecksum(test_compactedDiskMapV2);
+function processFunction(input) {
+    const spinner = ora('Processing...').start();
 
-    const DataPath = path.resolve(__dirname, 'data.txt');
-    const diskMapInput = fs.readFileSync(DataPath, 'utf-8').trim();
-    const parsedDiskMap = parseDiskMap(diskMapInput);
+    const parsedDiskMap = parseDiskMap(input);
     const compactedDiskMapV2 = compactDiskMapV2(parsedDiskMap);
-    const checksumV2 = calculateChecksum(compactedDiskMapV2);
+    const result = calculateChecksum(compactedDiskMapV2);
 
-    console.log("=====================");
-    console.log("🌟 Day 9 - Part 2 🌟");
-    console.log("=====================");
-    console.log("Test Checksum:", test_checksumV2);
-    console.log("Input Checksum:", checksumV2);
-} catch (error) {
-    console.error("Error processing disk map:", error);
+    spinner.succeed('Processing complete!');
+    return result;
 }
+
+const correctResults = [2858];
+runDay(9, 2, "", processFunction, correctResults);

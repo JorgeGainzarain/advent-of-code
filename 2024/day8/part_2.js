@@ -1,12 +1,11 @@
-const fs = require('fs');
+const runDay = require('../../functions/dayTemplate');
 
-function findAntinodesFromFile(filePath) {
-    const input = fs.readFileSync(filePath, 'utf-8');
-    return findAntinodes(input);
+function loadFile(data) {
+    return data.trim().replace(/\r/g, '');
 }
 
 function findAntinodes(input) {
-    const grid = input.replaceAll("\r", "").split('\n');
+    const grid = input.split('\n');
     const antennasByFrequency = {};
 
     for (let i = 0; i < grid.length; i++) {
@@ -59,34 +58,10 @@ function findAntinodes(input) {
     return { grid, allAntinodes };
 }
 
-function printGridWithAntinodes(grid, allAntinodes) {
-    for (let i = 0; i < grid.length; i++) {
-        let row = grid[i].split('');
-        for (let j = 0; j < row.length; j++) {
-            if (allAntinodes.has(`${i},${j}`)) {
-                row[j] = '#';
-            }
-        }
-        console.log(row.join(''));
-    }
-
-    console.log(`Number of unique antinode positions: ${allAntinodes.size}`);
+function processFunction(input) {
+    const { allAntinodes } = findAntinodes(input);
+    return allAntinodes.size;
 }
 
-const test_result = findAntinodesFromFile('test_data.txt');
-const result = findAntinodesFromFile('data.txt');
-
-console.log("=====================");
-console.log("🌟 Day 8 - Part 2 🌟");
-console.log("=====================");
-console.log("Sum of Valid Test Values:", test_result.allAntinodes.size);
-console.log("Sum of Valid Input Values:", result.allAntinodes.size);
-/*
-console.log("=====================");
-console.log("Visual Test Grid:");
-printGridWithAntinodes(test_result.grid, test_result.allAntinodes);
-console.log("=====================");
-console.log("Visual Input Grid:");
-printGridWithAntinodes(result.grid, result.allAntinodes);
-
- */
+const correctResults = [34];
+runDay(8, 2, loadFile, processFunction, correctResults);

@@ -1,5 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+
+function loadFile(data) {
+    return data.trim();
+}
 
 function parseInput(input) {
     const lines = input.split('\n').map(line => line.trim());
@@ -61,17 +64,10 @@ function simulateGuard(map, guardPosition, guardDirection) {
     return visited.size;
 }
 
-const test_input = fs.readFileSync(path.resolve(__dirname, 'test_data.txt'), 'utf8').trim();
-const { map: test_map, guardPosition: test_guardPosition, guardDirection: test_guardDirection } = parseInput(test_input);
-const test_result = simulateGuard(test_map, test_guardPosition, test_guardDirection);
+function processData(data) {
+    const { map, guardPosition, guardDirection } = parseInput(data);
+    return simulateGuard(map, guardPosition, guardDirection);
+}
 
-const input = fs.readFileSync(path.resolve(__dirname, 'data.txt'), 'utf8').trim();
-const { map, guardPosition, guardDirection } = parseInput(input);
-const result = simulateGuard(map, guardPosition, guardDirection);
-
-
-console.log("=====================");
-console.log("🌟 Day 6 - Part 1 🌟");
-console.log("=====================");
-console.log("Test Input Result:", test_result);
-console.log("Actual Input Result:", result);
+const correctResults = [41];
+runDay(6, 1, loadFile, processData, correctResults);

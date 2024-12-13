@@ -1,5 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
+
+function loadFile(data) {
+    return data.trim().split(' ').map(Number);
+}
 
 function simulateStonesEfficiently(stones, blinks) {
     const memo = new Map();
@@ -42,7 +45,6 @@ function simulateStonesEfficiently(stones, blinks) {
     }, {});
 
     for (let i = 0; i < blinks; i++) {
-        //console.log(`Blink ${i + 1}/${blinks}: Processing ${Object.keys(stoneCounts).length} unique stones...`);
         const nextStoneCounts = {};
 
         for (const [stone, count] of Object.entries(stoneCounts)) {
@@ -53,35 +55,16 @@ function simulateStonesEfficiently(stones, blinks) {
         }
 
         stoneCounts = nextStoneCounts;
-        const totalStones = Object.values(stoneCounts).reduce((sum, count) => sum + count, 0);
-        //console.log(`Blink ${i + 1} complete. Total stones: ${totalStones}`);
     }
 
     return Object.values(stoneCounts).reduce((sum, count) => sum + count, 0);
 }
 
-// Main execution
-try {
-    const test_DataPath = path.resolve(__dirname, 'test_data.txt');
-    const testInput = fs.readFileSync(test_DataPath, 'utf-8').trim();
-    const test_initialStones = testInput.split(' ').map(Number);
-    const test_blinks = 75;
-    console.time('Test Execution Time');
-    const test_result = simulateStonesEfficiently(test_initialStones, test_blinks);
-    console.timeEnd('Test Execution Time');
-    console.log("=====================");
-    console.log("🌟 Day 11 - Part 2 🌟");
-    console.log("=====================");
-    console.log(`Test Number of stones after ${test_blinks} blinks:`, test_result);
-
-    const DataPath = path.resolve(__dirname, 'data.txt');
-    const input = fs.readFileSync(DataPath, 'utf-8').trim();
-    const initialStones = input.split(' ').map(Number);
+function processFunction(input) {
+    const initialStones = input;
     const blinks = 75;
-    console.time('Execution Time');
-    const result = simulateStonesEfficiently(initialStones, blinks);
-    console.log(`Number of stones after ${blinks} blinks:`, result);
-    console.timeEnd('Execution Time');
-} catch (error) {
-    console.error('Error processing stones:', error);
+    return simulateStonesEfficiently(initialStones, blinks);
 }
+
+const correctResults = [65601038650482]; // This result for sample code wasn't in the advent of code website but i got it from the advent of code reddit
+runDay(11, 2, loadFile, processFunction, correctResults);

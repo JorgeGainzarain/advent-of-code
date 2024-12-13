@@ -1,14 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+const runDay = require('../../functions/dayTemplate');
 
-function loadAndSplitFile(filePath) {
-    const data = fs.readFileSync(filePath, 'utf8');
+function loadAndSplitFile(data) {
     const lines = data.split('\n');
     return lines.map(line => line.split(' ').map(Number));
 }
-
-const lists = loadAndSplitFile(path.join(__dirname, 'data.txt'));
-const testLists = loadAndSplitFile(path.join(__dirname, 'test_data.txt'));
 
 function isValidList(list) {
     let increasing = null;
@@ -31,7 +26,6 @@ function isValidList(list) {
     }
 
     return !seenNumbers.has(list[list.length - 1]);
-
 }
 
 function isSafeWithDampener(list) {
@@ -45,12 +39,9 @@ function isSafeWithDampener(list) {
     return false;
 }
 
-const validLists = lists.filter(isSafeWithDampener);
-const testValidLists = testLists.filter(isSafeWithDampener);
+function countSafeLists(lists) {
+    return lists.filter(isSafeWithDampener).length;
+}
 
-console.log();
-console.log("=====================");
-console.log("🌟 Day 2 - Part 2 🌟");
-console.log("=====================");
-console.log("Test Valid Lists Size: " + testValidLists.length);
-console.log("Actual Valid Lists Size: " + validLists.length);
+const correctResults = [4];
+runDay(2, 2, loadAndSplitFile, countSafeLists, correctResults);

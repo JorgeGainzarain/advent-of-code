@@ -1,9 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-function loadFile(filePath) {
-    return fs.readFileSync(filePath, 'utf8');
-}
+const runDay = require('../../functions/dayTemplate');
 
 function evaluateExpression(expression) {
     const mulPattern = /mul\((\d+),(\d+)\)/;
@@ -32,14 +27,5 @@ function evaluateExpression(expression) {
     return sum;
 }
 
-const test_input = loadFile(path.join(__dirname, 'test_data_2.txt'));
-const test_result = evaluateExpression(test_input);
-const input = loadFile(path.join(__dirname, 'data.txt'));
-const result = evaluateExpression(input);
-
-console.log();
-console.log("=====================");
-console.log("🌟 Day 3 - Part 2 🌟");
-console.log("=====================");
-console.log("Test Input Result: " + test_result);
-console.log("Actual Input Result: " + result);
+const correctResults = [48];
+runDay(3, 2, "", evaluateExpression, correctResults);
