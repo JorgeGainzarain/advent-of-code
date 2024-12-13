@@ -4,6 +4,9 @@
   "description": "",
   "main": "2024/day1/part_1.js",
   "scripts": {
+    "guard_path": "node visualization/guard_path/main.js",
+    "plutonian_pebbles": "node visualization/plutonian_pebbles/main.js",
+    "garden_groups": "node visualization/garden_groups/main.js",
     "2024:day1": "node 2024/day1/part_1.js && node 2024/day1/part_2.js",
     "2024:day2": "node 2024/day2/part_1.js && node 2024/day2/part_2.js",
     "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js",
@@ -20,7 +23,10 @@
   "private": true,
   "dependencies": {
     "async": "^3.2.6",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.11.0",
     "boxen": "^8.0.1",
+    "canvas": "^2.11.2",
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
     "cli-table3": "^0.6.5",
