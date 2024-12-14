@@ -7,6 +7,7 @@
     "guard_path": "node visualization/guard_path/main.js",
     "plutonian_pebbles": "node visualization/plutonian_pebbles/main.js",
     "garden_groups": "node visualization/garden_groups/main.js",
+    "xmas_tree": "node visualization/xmas_tree/main.js",
     "2024:day1": "node 2024/day1/part_1.js && node 2024/day1/part_2.js",
     "2024:day2": "node 2024/day2/part_1.js && node 2024/day2/part_2.js",
     "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js",
@@ -18,7 +19,9 @@
     "2024:day9": "node 2024/day9/part_1.js && node 2024/day9/part_2.js",
     "2024:day10": "node 2024/day10/part_1.js && node 2024/day10/part_2.js",
     "2024:day11": "node 2024/day11/part_1.js && node 2024/day11/part_2.js",
-    "2024:day12": "node 2024/day12/part_1.js && node 2024/day12/part_2.js"
+    "2024:day12": "node 2024/day12/part_1.js && node 2024/day12/part_2.js",
+    "2024:day13": "node 2024/day13/part_1.js && node 2024/day13/part_2.js",
+    "2024:day14": "node 2024/day14/part_1.js && node 2024/day14/part_2.js"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +33,7 @@
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
     "cli-table3": "^0.6.5",
+    "express": "^4.21.2",
     "ora": "^5.4.1",
     "worker-threads-pool": "^2.0.0"
   }
