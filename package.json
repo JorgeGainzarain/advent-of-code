@@ -7,7 +7,8 @@
     "guard_path": "node visualization/guard_path/main.js",
     "plutonian_pebbles": "node visualization/plutonian_pebbles/main.js",
     "garden_groups": "node visualization/garden_groups/main.js",
-    "xmas_tree": "node visualization/xmas_tree/main.js",
+    "xmas_tree_concurrent_search": "node visualization/xmas_tree/search_concurrent_robots.js",
+    "xmas_tree_safety_search": "node visualization/xmas_tree/search_lowest_safety_factor.js",
     "2024:day1": "node 2024/day1/part_1.js && node 2024/day1/part_2.js",
     "2024:day2": "node 2024/day2/part_1.js && node 2024/day2/part_2.js",
     "2024:day3": "node 2024/day3/part_1.js && node 2024/day3/part_2.js",
@@ -21,20 +22,26 @@
     "2024:day11": "node 2024/day11/part_1.js && node 2024/day11/part_2.js",
     "2024:day12": "node 2024/day12/part_1.js && node 2024/day12/part_2.js",
     "2024:day13": "node 2024/day13/part_1.js && node 2024/day13/part_2.js",
-    "2024:day14": "node 2024/day14/part_1.js && node 2024/day14/part_2.js"
+    "2024:day14_concurrent_robots": "node 2024/day14/part_1.js && node 2024/day14/part_2.js",
+    "2024:day14_lowest_safety_factor": "node 2024/day14/part_1.js && node 2024/day14/part_2_safety_factor.js"
   },
   "private": true,
   "dependencies": {
     "async": "^3.2.6",
     "blessed": "^0.1.81",
-    "blessed-contrib": "^4.11.0",
+    "blessed-contrib": "^1.0.11",
     "boxen": "^8.0.1",
     "canvas": "^2.11.2",
     "chalk": "^4.1.2",
+    "chart.js": "^4.4.7",
     "cli-progress": "^3.12.0",
     "cli-table3": "^0.6.5",
+    "d3": "^5.16.0",
     "express": "^4.21.2",
+    "jsdom": "^25.0.1",
     "ora": "^5.4.1",
+    "plotly": "^1.0.6",
+    "progress": "^2.0.3",
     "worker-threads-pool": "^2.0.0"
   }
 }

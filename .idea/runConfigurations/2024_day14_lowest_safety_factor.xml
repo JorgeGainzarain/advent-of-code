@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="xmas_tree" type="js.build_tools.npm" folderName="visualization" nameIsGenerated="true">
+  <configuration default="false" name="2024:day14_lowest_safety_factor" type="js.build_tools.npm" folderName="2024" nameIsGenerated="true">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="xmas_tree" />
+      <script value="2024:day14_lowest_safety_factor" />
     </scripts>
     <node-interpreter value="project" />
     <envs />

@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="2024:day14" type="js.build_tools.npm" folderName="2024" nameIsGenerated="true">
+  <configuration default="false" name="2024:day14_concurrent_robots" type="js.build_tools.npm" folderName="2024" nameIsGenerated="true">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="2024:day14" />
+      <script value="2024:day14_concurrent_robots" />
     </scripts>
     <node-interpreter value="project" />
     <envs />
