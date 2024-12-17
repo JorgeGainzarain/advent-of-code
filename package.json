@@ -41,6 +41,7 @@
     "jsdom": "^25.0.1",
     "ora": "^5.4.1",
     "plotly": "^1.0.6",
+    "priorityqueuejs": "^2.0.0",
     "progress": "^2.0.3",
     "worker-threads-pool": "^2.0.0"
   }
