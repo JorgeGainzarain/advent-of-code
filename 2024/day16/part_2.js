@@ -72,5 +72,5 @@ function processFunction(data) {
     return shortestPath(data);
 }
 
-const correctResults = [45, 64];
+const correctResults = [45, 64, 149];
 runDay(16, 2, loadData, processFunction, correctResults);

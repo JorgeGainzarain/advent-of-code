@@ -70,5 +70,5 @@ function processFunction(data) {
     return bfs(grid, start, end);
 }
 
-const correctResults = [7036, 11048];
+const correctResults = [7036, 11048, 21148];
 runDay(16,1, loadData, processFunction, correctResults);
