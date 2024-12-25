@@ -23,7 +23,18 @@
     "2024:day12": "node 2024/day12/part_1.js && node 2024/day12/part_2.js",
     "2024:day13": "node 2024/day13/part_1.js && node 2024/day13/part_2.js",
     "2024:day14_concurrent_robots": "node 2024/day14/part_1.js && node 2024/day14/part_2.js",
-    "2024:day14_lowest_safety_factor": "node 2024/day14/part_1.js && node 2024/day14/part_2_safety_factor.js"
+    "2024:day14_lowest_safety_factor": "node 2024/day14/part_1.js && node 2024/day14/part_2_safety_factor.js",
+    "2024:day15": "node 2024/day15/part_1.js && node 2024/day15/part_2.js",
+    "2024:day16": "node 2024/day16/part_1.js && node 2024/day16/part_2.js",
+    "2024:day17": "node 2024/day17/part_1.js && node 2024/day17/part_2.js",
+    "2024:day18": "node 2024/day18/part_1.js && node 2024/day18/part_2.js",
+    "2024:day19": "node 2024/day19/part_1.js && node 2024/day19/part_2.js",
+    "2024:day20": "node 2024/day20/part_1.js && node 2024/day20/part_2.js",
+    "2024:day21": "node 2024/day21/part_1.js && node 2024/day21/part_2.js",
+    "2024:day22": "node 2024/day22/part_1.js && node 2024/day22/part_2.js",
+    "2024:day23": "node 2024/day23/part_1.js && node 2024/day23/part_2.js",
+    "2024:day24": "node 2024/day24/part_1.js && node 2024/day24/part_2.js",
+    "2024:day25": "node 2024/day25/part_1.js && node 2024/day25/part_2.js"
   },
   "private": true,
   "dependencies": {
